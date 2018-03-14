@@ -84,11 +84,14 @@
 </template>
 
 <script>
+import runtimeEnv from '@mars/heroku-js-runtime-env'
+
 export default {
   name: 'HelloWorld',
   data () {
+    const env = runtimeEnv()
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: env.JS_RUNTIME_MESSAGE || 'runtimeEnv() is empty. Here’s a donut instead: 🍩'
     }
   }
 }
